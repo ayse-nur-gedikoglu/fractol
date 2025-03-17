@@ -272,14 +272,6 @@ Piksellerimizi pencereye yerleştirmek için sürekli olarak nasıl çağrı yap
 
 ## JULİA VE MANDELBROT FRACTALLARI
 
-### Fraktal Nedir?
-
-**Fraktal** dediğimiz şey, sonsuz döngüyle oluşan **kendini tekrar eden geometrik yapılardır**.
-
-Julia Kümesi ve Mandelbrot Kümesi, karmaşık düzlemde oldukça iyi bilinen ve o güzel sonsuz detaylı görüntüleri yaratan kümelerdir. O kadar güzeller ki, onlarla sanat bile yaratılıyor. Mandelbrot Kümesi tanımı gereği gerçek bir fraktal değil, ancak yarı kendine benzer ve yine de sonsuz detay gösteriyor, bu yüzden genellikle fraktal olarak da adlandırılır.
-
-Julia Kümeleri üzerine araştırma 1917'de Gaston Julia tarafından yapıldı, ancak onu gerçekten çizebileceği bir bilgisayarı yoktu. Konu, 1970'lere kadar fazla ilgi görmedi, ta ki Benout Mandelbrot bir bilgisayarda Julia Kümeleri çizene ve Mandelbrot kümesini keşfedene kadar.
-
 ### Mandelbrot Fraktalı
 
 ---
@@ -288,7 +280,7 @@ Julia Kümeleri üzerine araştırma 1917'de Gaston Julia tarafından yapıldı,
 
 ## Matematik Formülü:
 
-![image.png](attachment:19523357-da38-47db-836e-8d87e8a85bee:image.png)
+![image (1)](https://github.com/user-attachments/assets/ea20c033-a8d8-4445-8bfc-cf870be4a5cb)
 
 ---
 
@@ -313,7 +305,7 @@ Ama burada fark şu:
 
 ## Matematik Formülü:
 
-![image.png](attachment:e0cee8ce-5b40-41d3-ba9d-b0b3950895d4:image.png)
+![image (2)](https://github.com/user-attachments/assets/cb6aa64e-5fc8-47f6-8c3e-44a45330930d)
 
 ---
 
