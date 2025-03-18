@@ -1,9 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agedikog <gedikoglu_27@icloud.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/18 21:28:04 by agedikog          #+#    #+#             */
+/*   Updated: 2025/03/18 21:28:04 by agedikog         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
 # include <unistd.h>
 # include <stdlib.h>
 # include <X11/X.h>
+# include <math.h>
 # include "minilibx-linux/mlx.h"
 
 # define HEIGHT 600
@@ -61,10 +74,9 @@ typedef struct s_fractol
     int     color_offset;
 } t_fractol;
 
-void	pixel_put(t_data *data, int x, int y, int color);
 void	mlx_create(t_fractol *f, int height, int width, char *title);
+void	pixel_put(t_data *data, int x, int y, int color);
 void	draw_fractal(t_fractol *f, void (*compute_pixel)(t_fractol *, int, int));
-void	background_colour(t_fractol *f, int color);
 
 void	mandelbrot(t_fractol *f);
 void	julia(t_fractol *f);
@@ -74,19 +86,26 @@ void	compute_pixel(t_fractol *f, int x, int y);
 void	compute_julia_pixel(t_fractol *f, int x, int y);
 void	compute_burning_pixel(t_fractol *f, int x, int y);
 
-int		map_val(int value, int input_min, int input_max, int output_min, int output_max);
 int		shift_color(int color, int offset);
 int		get_color(int iteration, int max_iter, int offset);
 
+int		map_val(int value, int input_min, int input_max, int output_min, int output_max);
 double	ft_fabs(double x);
 double	ft_atof(const char *str);
+
 void	print_error(char *str);
 void	initialize_fractol(t_fractol *f, int argc, char **argv);
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strlen(char *str);
 
 int		close_window(t_fractol *f);
 int		key_hook(int keycode, t_fractol *f);
 int		mouse_hook(int button, int x, int y, t_fractol *f);
 void	register_hooks(t_fractol *f);
+void	free_fractol(t_fractol *f);
+
+void	reset_view(t_fractol *f);
+void 	initialize_draw(t_fractol *f);
 
 #endif

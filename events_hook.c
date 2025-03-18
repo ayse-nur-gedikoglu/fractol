@@ -1,21 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   events_hook.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agedikog <gedikoglu_27@icloud.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/18 21:27:55 by agedikog          #+#    #+#             */
+/*   Updated: 2025/03/19 00:39:45 by agedikog         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 static void process_movement(int keycode, t_fractol *f)
 {
     double shift = 0.1 * (f->max_real - f->min_real);
-    if (keycode == MOVE_LEFT) {
+    if (keycode == MOVE_LEFT) 
+    {
         f->min_real -= shift;
         f->max_real -= shift;
     }
-    else if (keycode == MOVE_RIGHT) {
+    else if (keycode == MOVE_RIGHT) 
+    {
         f->min_real += shift;
         f->max_real += shift;
     }
-    else if (keycode == MOVE_UP) {
+    else if (keycode == MOVE_UP) 
+    {
         f->min_imag -= shift;
         f->max_imag -= shift;
     }
-    else if (keycode == MOVE_DOWN) {
+    else if (keycode == MOVE_DOWN) 
+    {
         f->min_imag += shift;
         f->max_imag += shift;
     }
@@ -35,27 +51,18 @@ static void process_settings(int keycode, t_fractol *f)
         f->color_offset = (f->color_offset + 10) % 256;
 }
 
-static void update_fractal(t_fractol *f)
-{
-    if (f->mode == 0)
-        mandelbrot(f);
-    else if (f->mode == 1)
-        julia(f);
-    else if (f->mode == 2)
-        burning_ship(f);
-}
-
 int key_hook(int keycode, t_fractol *f)
 {
     if (keycode == EXIT_KEY)
-        return close_window(f);
-    
+    {
+        close_window(f);
+        return (0);
+    }
     process_movement(keycode, f);
     process_settings(keycode, f);
-    update_fractal(f);
-    
+    initialize_draw(f);
     mlx_put_image_to_window(f->mlx, f->mlx_win, f->canvas->img, 0, 0);
-    return 0;
+    return (0);
 }
 
 int mouse_hook(int button, int x, int y, t_fractol *f)
@@ -76,12 +83,7 @@ int mouse_hook(int button, int x, int y, t_fractol *f)
     f->max_real = mouse_re + (f->max_real - mouse_re) * factor;
     f->min_imag = mouse_im + (f->min_imag - mouse_im) * factor;
     f->max_imag = mouse_im + (f->max_imag - mouse_im) * factor;
-    if (f->mode == 0)
-        mandelbrot(f);
-    else if (f->mode == 1)
-        julia(f);
-    else if (f->mode == 2)
-        burning_ship(f);
-    mlx_put_image_to_window(f->mlx, f->mlx_win, f->canvas->img, 0, 0);
+    initialize_draw(f);
     return (0);
 }
+

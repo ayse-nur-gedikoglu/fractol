@@ -1,17 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agedikog <gedikoglu_27@icloud.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/18 21:28:30 by agedikog          #+#    #+#             */
+/*   Updated: 2025/03/19 00:36:35 by agedikog         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
-void	write_str(char *str)
+int	ft_strlen(char *str)
 {
-	int	i = 0;
-	while (str[i])
-		write(1, &str[i++], 1);
+	int	i;
+
+	i = 0;
+	while(str)
+		i++;
+	return (i);
 }
 
-void	print_error(char *str)
+void print_error(char *message)
 {
-	write_str(str);
-	write(1, "\n", 1);
-	exit(1);
+    write(2, message, ft_strlen(message));
+    write(2, "\n", 1);
+    exit(1);
 }
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
@@ -54,12 +69,4 @@ double	ft_atof(const char *str)
 		}
 	}
 	return (result * sign);
-}
-
-double ft_fabs(double x)
-{
-    if (x < 0)
-        return -x;
-    else
-        return x;
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agedikog <gedikoglu_27@icloud.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/18 21:27:23 by agedikog          #+#    #+#             */
+/*   Updated: 2025/03/19 00:24:56 by agedikog         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 static void parse_fractal_mode(t_fractol *f, int argc, char **argv)
@@ -18,7 +30,7 @@ static void parse_fractal_mode(t_fractol *f, int argc, char **argv)
         print_error("Unknown fractal type!");
 }
 
-static void initial_draw(t_fractol *f)
+void initialize_draw(t_fractol *f)
 {
     if (f->mode == 0)
         mandelbrot(f);
@@ -33,12 +45,18 @@ int main(int argc, char **argv)
     t_fractol f;
 
     if (argc < 2 || argc > 4)
+    {
         print_error("Usage: ./fractol mandelbrot OR ./fractol julia [real] [imag] OR ./fractol burning");
+        return (1);
+    }
     initialize_fractol(&f, argc, argv);
-    mlx_create(&f, HEIGHT, WIDTH, "fractol");
     parse_fractal_mode(&f, argc, argv);
-    initial_draw(&f);
+    mlx_create(&f, HEIGHT, WIDTH, "fractol");
+    if (!f.mlx_win)
+        print_error("Error initializing window!");
+    initialize_draw(&f);
     register_hooks(&f);
     mlx_loop(f.mlx);
+    free_fractol(&f);
     return (0);
 }
