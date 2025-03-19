@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
@@ -6,35 +6,32 @@
 /*   By: agedikog <gedikoglu_27@icloud.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 21:28:27 by agedikog          #+#    #+#             */
-/*   Updated: 2025/03/18 21:28:28 by agedikog         ###   ########.fr       */
+/*   Updated: 2025/03/19 18:39:34 by agedikog         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "fractol.h"
 
 void compute_pixel(t_fractol *f, int x, int y)
 {
-    double c_re;
-    double c_im;
-    double z_re;
-    double z_im;
-    double tmp;
-    int    i;
+    t_burn m; 
 
-    c_re = f->min_real + ((double)x / WIDTH) * (f->max_real - f->min_real);
-    c_im = f->min_imag + ((double)y / HEIGHT) * (f->max_imag - f->min_imag);
-    z_re = 0;
-    z_im = 0;
-    i = 0;
-    while ((z_re * z_re + z_im * z_im) <= 4 && i < f->max_iter)
+    m.c_re = f->min_real + ((double)x / WIDTH) * (f->max_real - f->min_real);
+    m.c_im = f->min_imag + ((double)y / HEIGHT) * (f->max_imag - f->min_imag);
+    m.z_re = 0;
+    m.z_im = 0;
+    m.i = 0;
+
+    while ((m.z_re * m.z_re + m.z_im * m.z_im) <= 4 && m.i < f->max_iter)
     {
-        tmp = z_re * z_re - z_im * z_im + c_re;
-        z_im = 2 * z_re * z_im + c_im;
-        z_re = tmp;
-        i++;
+        m.tmp = m.z_re * m.z_re - m.z_im * m.z_im + m.c_re;
+        m.z_im = 2 * m.z_re * m.z_im + m.c_im;
+        m.z_re = m.tmp;
+        m.i++;
     }
-    if (i < f->max_iter)
-        pixel_put(f->canvas, x, y, get_color(i, f->max_iter, f->color_offset));
+
+    if (m.i < f->max_iter)
+        pixel_put(f->canvas, x, y, get_color(m.i, f->max_iter, f->color_offset));
     else
         pixel_put(f->canvas, x, y, CLR_BLACK);
 }
