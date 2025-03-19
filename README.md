@@ -184,7 +184,7 @@ mlx_new_window(mlx, 800, 600, "Hello");
 
 ```
 
-aslında Xlib'de böyle bir şeye dönüşüyor:
+Aslında Xlib'de böyle bir şeye dönüşüyor:
 
 ```c
 
