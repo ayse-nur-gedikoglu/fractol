@@ -6,7 +6,7 @@
 /*   By: agedikog <gedikoglu_27@icloud.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 21:28:30 by agedikog          #+#    #+#             */
-/*   Updated: 2025/03/19 15:52:17 by agedikog         ###   ########.fr       */
+/*   Updated: 2025/03/19 18:22:57 by agedikog         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -71,18 +71,18 @@ int julia_arg_check(const char *str)
     int i;
     int dot_count;
 
-	i = 0;
-	dot_count = 0;
+    i = 0;
+    dot_count = 0;
     if (str[i] == '+' || str[i] == '-')
         i++;
-    if (!str[i])
+    if (!(str[i] >= '0' && str[i] <= '9'))
         return (0);
     while (str[i])
     {
         if (str[i] == '.')
         {
             dot_count++;
-            if (dot_count > 1)
+            if (dot_count > 1 || !(str[i + 1] >= '0' && str[i + 1] <= '9'))
                 return (0);
         }
         else if (!(str[i] >= '0' && str[i] <= '9'))
