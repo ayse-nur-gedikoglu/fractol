@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   core.c                                             :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: agedikog <gedikoglu_27@icloud.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 21:27:51 by agedikog          #+#    #+#             */
-/*   Updated: 2025/03/19 16:56:42 by agedikog         ###   ########.fr       */
+/*   Updated: 2025/03/19 17:46:15 by agedikog         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "fractol.h"
 
@@ -55,8 +55,8 @@ void	initialize_fractol(t_fractol *fractol, int argc, char **argv)
 	fractol->offset_x = 0.0;
 	fractol->offset_y = 0.0;
 	fractol->max_iter = 100;
-	fractol->julia_re = 0.285;
-	fractol->julia_im = 0.01;
+	(void)fractol->julia_re;
+	(void)fractol->julia_im;
 	fractol->color_offset = 0;
 	if (argc == 4)
 	{
