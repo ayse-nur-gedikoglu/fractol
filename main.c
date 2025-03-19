@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: agedikog <gedikoglu_27@icloud.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 21:27:23 by agedikog          #+#    #+#             */
-/*   Updated: 2025/03/19 17:06:37 by agedikog         ###   ########.fr       */
+/*   Updated: 2025/03/19 18:03:29 by agedikog         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "fractol.h"
 
@@ -25,7 +25,7 @@ static void parse_fractal_mode(t_fractol *f, int argc, char **argv)
     else if (argc == 2 && (ft_strncmp(argv[1], "burning", 7) == 0) && argv[1][7] == '\0')
         f->mode = 2;
     else
-        print_error("Unknown fractal type!");
+        print_error("argv[0] = ./program_name argv[1] = mandelbrot or julia or burning");
 }
 
 void initialize_draw(t_fractol *f)
@@ -42,6 +42,8 @@ int main(int argc, char **argv)
 {
     t_fractol f;
 
+    if(argc == 1 || argc > 4)
+        print_error("Wrong number of arguments\nargv[0] = ./program_name argv[1] = mandelbrot or julia or burning");
     initialize_fractol(&f, argc, argv);
     parse_fractal_mode(&f, argc, argv);
     mlx_create(&f, HEIGHT, WIDTH, "fractol");
@@ -53,3 +55,4 @@ int main(int argc, char **argv)
     free_fractol(&f);
     return (0);
 }
+
