@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
@@ -6,25 +6,25 @@
 /*   By: agedikog <gedikoglu_27@icloud.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 21:27:23 by agedikog          #+#    #+#             */
-/*   Updated: 2025/03/19 00:24:56 by agedikog         ###   ########.fr       */
+/*   Updated: 2025/03/19 15:55:06 by agedikog         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "fractol.h"
 
 static void parse_fractal_mode(t_fractol *f, int argc, char **argv)
 {
-    if (ft_strncmp(argv[1], "mandelbrot", 10) == 0)
+    if (argc == 2 && (ft_strncmp(argv[1], "mandelbrot", 10) == 0) && argv[1][10] == '\0')
         f->mode = 0;
-    else if (ft_strncmp(argv[1], "julia", 5) == 0)
+    else if ((ft_strncmp(argv[1], "julia", 5) == 0)  && argv[1][5] == '\0')
     {
-        if (argc != 4)
-            print_error("Usage: ./fractol julia [real] [imag]");
+        if (argc != 4 || !julia_arg_check(argv[2]) || !julia_arg_check(argv[3]))
+            print_error("Usage: ./fractol julia [real] [imag]");        
         f->mode = 1;
         f->julia_re = ft_atof(argv[2]);
         f->julia_im = ft_atof(argv[3]);
     }
-    else if (ft_strncmp(argv[1], "burning", 7) == 0)
+    else if (argc == 2 && (ft_strncmp(argv[1], "burning", 7) == 0) && argv[1][7] == '\0')
         f->mode = 2;
     else
         print_error("Unknown fractal type!");

@@ -6,7 +6,7 @@
 /*   By: agedikog <gedikoglu_27@icloud.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 21:28:04 by agedikog          #+#    #+#             */
-/*   Updated: 2025/03/19 01:59:29 by agedikog         ###   ########.fr       */
+/*   Updated: 2025/03/19 15:47:21 by agedikog         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -77,6 +77,7 @@ typedef struct s_fractol
 void	mlx_create(t_fractol *f, int height, int width, char *title);
 void	pixel_put(t_data *data, int x, int y, int color);
 void	draw_fractal(t_fractol *f, void (*compute_pixel)(t_fractol *, int, int));
+void	initialize_fractol(t_fractol *f, int argc, char **argv);
 
 void	mandelbrot(t_fractol *f);
 void	julia(t_fractol *f);
@@ -90,14 +91,10 @@ int		shift_color(int color, int offset);
 int		get_color(int iteration, int max_iter, int offset);
 
 int		map_val(int value, int input_min, int input_max, int output_min, int output_max);
-double	ft_fabs(double x);
 double	ft_atof(const char *str);
-
 void	print_error(char *str);
-void	initialize_fractol(t_fractol *f, int argc, char **argv);
-
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-int		ft_strlen(char *str);
+int     julia_arg_check(const char *str);
 
 int		close_window(t_fractol *f);
 int		key_hook(int keycode, t_fractol *f);
