@@ -27,7 +27,7 @@
 # define MOVE_RIGHT      65363
 # define MOVE_UP         65362
 # define MOVE_DOWN       65364
-# define INCREASE_ITER   61
+# define INCREASE_ITER   61 //düzeltilecek
 # define DECREASE_ITER   45
 # define RESET_VIEW      114
 # define COLOR_SHIFT     99

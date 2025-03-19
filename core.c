@@ -6,7 +6,7 @@
 /*   By: agedikog <gedikoglu_27@icloud.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 21:27:51 by agedikog          #+#    #+#             */
-/*   Updated: 2025/03/19 00:39:21 by agedikog         ###   ########.fr       */
+/*   Updated: 2025/03/19 16:56:42 by agedikog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	mlx_create(t_fractol *fractol, int height, int width, char *title)
 		print_error("Failed to get image data address!");
 }
 
-
 void	initialize_fractol(t_fractol *fractol, int argc, char **argv)
 {
 	fractol->min_real = -2.0;
@@ -58,6 +57,7 @@ void	initialize_fractol(t_fractol *fractol, int argc, char **argv)
 	fractol->max_iter = 100;
 	fractol->julia_re = 0.285;
 	fractol->julia_im = 0.01;
+	fractol->color_offset = 0;
 	if (argc == 4)
 	{
 		fractol->julia_re = ft_atof(argv[2]);
@@ -84,20 +84,25 @@ void draw_fractal(t_fractol *f, void (*compute_pixel)(t_fractol *, int, int))
     mlx_put_image_to_window(f->mlx, f->mlx_win, f->canvas->img, 0, 0);
 }
 
-void	free_fractol(t_fractol *f)
+void free_fractol(t_fractol *f)
 {
     if (f->canvas)
     {
         if (f->canvas->img)
             mlx_destroy_image(f->mlx, f->canvas->img);
         free(f->canvas);
+        f->canvas = NULL;
     }
     if (f->mlx_win)
+    {
         mlx_destroy_window(f->mlx, f->mlx_win);
-
+        f->mlx_win = NULL;
+    }
     if (f->mlx)
     {
         mlx_destroy_display(f->mlx);
         free(f->mlx);
+        f->mlx = NULL;
     }
 }
+
