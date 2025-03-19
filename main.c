@@ -6,7 +6,7 @@
 /*   By: agedikog <gedikoglu_27@icloud.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 21:27:23 by agedikog          #+#    #+#             */
-/*   Updated: 2025/03/19 18:03:29 by agedikog         ###   ########.fr       */
+/*   Updated: 2025/03/19 18:12:19 by agedikog         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -18,8 +18,9 @@ static void parse_fractal_mode(t_fractol *f, int argc, char **argv)
         f->mode = 0;
     else if ((ft_strncmp(argv[1], "julia", 5) == 0)  && argv[1][5] == '\0')
     {
-        if (argc != 4 || !julia_arg_check(argv[2]) || !julia_arg_check(argv[3]))
-            print_error("Usage: ./fractol julia [real] [imag]");        
+        if (argc == 4)
+            if (!julia_arg_check(argv[2]) || !julia_arg_check(argv[3]))
+                print_error("Usage: ./fractol julia [real] [imag]");
         f->mode = 1;
     }
     else if (argc == 2 && (ft_strncmp(argv[1], "burning", 7) == 0) && argv[1][7] == '\0')
