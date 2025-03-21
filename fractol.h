@@ -6,7 +6,7 @@
 /*   By: agedikog <gedikoglu_27@icloud.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 21:28:04 by agedikog          #+#    #+#             */
-/*   Updated: 2025/03/19 15:47:21 by agedikog         ###   ########.fr       */
+/*   Updated: 2025/03/21 13:01:14 by agedikog         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -27,8 +27,8 @@
 # define MOVE_RIGHT      65363
 # define MOVE_UP         65362
 # define MOVE_DOWN       65364
-# define INCREASE_ITER   61 //düzeltilecek
-# define DECREASE_ITER   45
+# define INCREASE_ITER   97
+# define DECREASE_ITER   115
 # define RESET_VIEW      114
 # define COLOR_SHIFT     99
 

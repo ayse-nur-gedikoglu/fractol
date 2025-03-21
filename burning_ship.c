@@ -6,7 +6,7 @@
 /*   By: agedikog <gedikoglu_27@icloud.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 21:27:36 by agedikog          #+#    #+#             */
-/*   Updated: 2025/03/19 18:39:56 by agedikog         ###   ########.fr       */
+/*   Updated: 2025/03/21 12:58:18 by agedikog         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -14,7 +14,7 @@
 
 void compute_burning_pixel(t_fractol *f, int x, int y)
 {
-    t_burn  c;
+    t_burn  b;
 
     b.c_re = f->min_real + ((double)x / WIDTH) * (f->max_real - f->min_real);
     b.c_im = f->min_imag + ((double)y / HEIGHT) * (f->max_imag - f->min_imag);
