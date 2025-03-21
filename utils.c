@@ -6,7 +6,7 @@
 /*   By: agedikog <gedikoglu_27@icloud.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 21:28:30 by agedikog          #+#    #+#             */
-/*   Updated: 2025/03/19 18:22:57 by agedikog         ###   ########.fr       */
+/*   Updated: 2025/03/21 12:36:16 by agedikog         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -50,8 +50,11 @@ double	ft_atof(const char *str)
 	sign = 1;
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
-		if (str[i++] == '-')
+	{
+		if (str[i] == '-')
 			sign = -1;
+		i++;
+	}
 	while (str[i] >= '0' && str[i] <= '9')
 		result = result * 10 + (str[i++] - '0');
 	if (str[i] == '.')
