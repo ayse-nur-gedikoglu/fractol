@@ -19,7 +19,7 @@ OBJDIR	= ./obj
 MLXDIR	= ./minilibx-linux
 MLX_REPO = https://github.com/42paris/minilibx-linux.git
 
-SRC		= main.c mandelbrot.c julia.c burning_ship.c\
+SRC		= main.c fractals.c\
 			core.c utils.c events.c color.c events_hook.c
 OBJ		= $(addprefix $(OBJDIR)/,$(SRC:.c=.o))
 
