@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: agedikog <gedikoglu_27@icloud.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 21:27:45 by agedikog          #+#    #+#             */
-/*   Updated: 2025/03/28 23:14:40 by agedikog         ###   ########.fr       */
+/*   Updated: 2025/04/02 19:04:07 by agedikog         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "fractol.h"
 
@@ -29,7 +29,7 @@ int	get_color(int iteration, int max_iter, int offset)
 	int	base_color;
 	double	ratio;
 
-	if (iteration == max_iter || iteration == 0)
+	if (iteration == 0)
 		return (CLR_BLACK);
 	ratio = (double)(iteration - 1) / (max_iter - 1);
 	base_color = (int)(CLR_BLACK + ratio * (CLR_WHITE - CLR_BLACK));
