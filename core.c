@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   core.c                                             :+:      :+:    :+:   */
@@ -6,12 +6,11 @@
 /*   By: agedikog <gedikoglu_27@icloud.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 21:27:51 by agedikog          #+#    #+#             */
-/*   Updated: 2025/03/28 23:43:50 by agedikog         ###   ########.fr       */
+/*   Updated: 2025/04/02 19:15:41 by agedikog         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "fractol.h"
-#include "stdio.h"
 
 void	pixel_put(t_data *data, int x, int y, int color)
 {
@@ -62,9 +61,7 @@ void	initialize_fractol(t_fractol *fractol, int argc, char **argv)
 	if (argc == 4)
 	{
 		fractol->julia_re = ft_atof(argv[2]);
-		fractol->julia_im = ft_atof(argv[3]);
-		printf("%f\n",fractol->julia_re);	
-		printf("%f\n",fractol->julia_im);	
+		fractol->julia_im = ft_atof(argv[3]);	
 	}
 }
 
