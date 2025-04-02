@@ -6,7 +6,7 @@
 /*   By: agedikog <gedikoglu_27@icloud.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 21:27:51 by agedikog          #+#    #+#             */
-/*   Updated: 2025/04/02 19:15:41 by agedikog         ###   ########.fr       */
+/*   Updated: 2025/04/02 19:36:54 by agedikog         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -57,7 +57,7 @@ void	initialize_fractol(t_fractol *fractol, int argc, char **argv)
 	fractol->max_iter = 500;
 	fractol->julia_re = 0.285;
 	fractol->julia_im = 0.01;
-	fractol->color_offset = 0;
+	fractol->color_offset = 100;
 	if (argc == 4)
 	{
 		fractol->julia_re = ft_atof(argv[2]);
