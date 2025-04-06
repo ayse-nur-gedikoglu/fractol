@@ -70,6 +70,7 @@ fclean: clean
 	@echo "Cleaning all built files"
 	@rm -f $(NAME) $(NAME)_bonus
 	@rm -rf $(MLXDIR)
+	@rm -rf $(OBJDIR)
 
 re: fclean all
 
