@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/******************************************************************************/
-=======
 /* ************************************************************************** */
->>>>>>> 2c70ea8e17b7515204d2b1928307894b34966e57
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
@@ -10,15 +6,6 @@
 /*   By: agedikog <gedikoglu_27@icloud.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 21:28:30 by agedikog          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2025/03/21 12:36:16 by agedikog         ###   ########.fr       */
-/*                                                                            */
-/******************************************************************************/
-
-#include "fractol.h"
-
-void print_error(char *message)
-=======
 /*   Updated: 2025/03/28 23:37:55 by agedikog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -26,24 +13,15 @@ void print_error(char *message)
 #include "fractol.h"
 
 void	print_error(char *message)
->>>>>>> 2c70ea8e17b7515204d2b1928307894b34966e57
 {
 	int	i;
 
 	i = 0;
-<<<<<<< HEAD
-	while(message[i])
-		i++;
-    write(2, message, i);
-    write(2, "\n", 1);
-    exit(1);
-=======
 	while (message[i])
 		i++;
 	write(2, message, i);
 	write(2, "\n", 1);
 	exit(1);
->>>>>>> 2c70ea8e17b7515204d2b1928307894b34966e57
 }
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
@@ -65,32 +43,10 @@ double	ft_atof(const char *str)
 	double	result;
 	double	frac;
 	int		sign;
-<<<<<<< HEAD
-	int		i;
-=======
->>>>>>> 2c70ea8e17b7515204d2b1928307894b34966e57
 
 	result = 0.0;
 	frac = 0.1;
 	sign = 1;
-<<<<<<< HEAD
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-		result = result * 10 + (str[i++] - '0');
-	if (str[i] == '.')
-	{
-		i++;
-		while (str[i] >= '0' && str[i] <= '9')
-		{
-			result += (str[i++] - '0') * frac;
-			frac /= 10;
-=======
 	if (*str == '-' || *str == '+')
 	{
 		if (*str++ == '-')
@@ -104,38 +60,11 @@ double	ft_atof(const char *str)
 		{
 			result += (*str - '0') * frac;
 			frac *= 0.1;
->>>>>>> 2c70ea8e17b7515204d2b1928307894b34966e57
 		}
 	}
 	return (result * sign);
 }
 
-<<<<<<< HEAD
-int julia_arg_check(const char *str)
-{
-    int i;
-    int dot_count;
-
-    i = 0;
-    dot_count = 0;
-    if (str[i] == '+' || str[i] == '-')
-        i++;
-    if (!(str[i] >= '0' && str[i] <= '9'))
-        return (0);
-    while (str[i])
-    {
-        if (str[i] == '.')
-        {
-            dot_count++;
-            if (dot_count > 1 || !(str[i + 1] >= '0' && str[i + 1] <= '9'))
-                return (0);
-        }
-        else if (!(str[i] >= '0' && str[i] <= '9'))
-            return (0);
-        i++;
-    }
-    return (1);
-=======
 int	julia_arg_check(const char *str)
 {
 	int	i;
@@ -162,5 +91,4 @@ int	julia_arg_check(const char *str)
 		i++;
 	}
 	return (1);
->>>>>>> 2c70ea8e17b7515204d2b1928307894b34966e57
 }
